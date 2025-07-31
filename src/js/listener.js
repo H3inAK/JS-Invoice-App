@@ -1,13 +1,12 @@
-import { manageInventoryBtn, sidebar, sidebarBtn } from "./selectors";
+import { manageInventoryBtnHandler, sidebarBtnHandler } from "./handler";
+import { addNewProductBtnHandler } from "./inventory";
+import { addNewProductBtn, manageInventoryBtn, sidebarBtn } from "./selectors";
 
 const listener = () => {
-    manageInventoryBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('translate-x-full');
-    })
+    manageInventoryBtn.addEventListener('click', manageInventoryBtnHandler)
+    sidebarBtn.addEventListener('click', sidebarBtnHandler)
 
-    sidebarBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('translate-x-full');
-    })
+    addNewProductBtn.addEventListener('click', addNewProductBtnHandler)
 };
 
 export default listener;
