@@ -131,6 +131,7 @@
       <section class="mt-1">
         <div class="container">
           <form
+            id="addRecordForm"
             action="#"
             class="bg-blue-50 py-2 px-4 dark:bg-zinc-800 rounded drop-shadow-sm"
           >
@@ -138,6 +139,8 @@
               <div class="col-span-2 sm:col-span-3">
                 <div class="relative">
                   <select
+                    id="productSelect"
+                    name="product_select"
                     data-hs-select='{
       "placeholder": "Choose Product...",
       "toggleTag": "<button type=\"button\" aria-expanded=\"false\"></button>",
@@ -148,11 +151,11 @@
     }'
                   >
                     <option value="">Choose</option>
-                    <option>Apple Macbook</option>
+                    <!-- <option>Apple Macbook</option>
                     <option>Apple Ipad</option>
                     <option>Apple Iphone</option>
                     <option>Apple Watch</option>
-                    <option>Xiaomi NoteBook</option>
+                    <option>Xiaomi NoteBook</option> -->
                   </select>
 
                   <div class="absolute top-1/2 end-2.5 -translate-y-1/2">
@@ -187,9 +190,12 @@
                       class="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none dark:text-white"
                       style="-moz-appearance: textfield"
                       type="number"
+                      id="quantity"
+                      name="quantity"
                       aria-roledescription="Number field"
                       value="1"
                       data-hs-input-number-input=""
+                      required
                     />
                     <div class="flex justify-end items-center gap-x-1.5">
                       <button
@@ -244,7 +250,7 @@
               </div>
               <div class="flex justify-end">
                 <button
-                  type="button"
+                  type="submit"
                   class="py-3 px-4 text-nowrap text-center flex justify-center w-full sm:inline-flex items-center gap-x-2 text-sm font-medium overflow-x-clip rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                 >
                   Add Record
@@ -519,7 +525,7 @@
       <section>
         <div
           id="sidebar"
-          class="fixed top-0 right-0 min-h-screen w-[300px] bg-white dark:bg-zinc-800 shadow-sm translate-x-full transition-transform duration-300 ease-in-out"
+          class="fixed top-0 right-0 h-screen w-[300px] overflow-y-auto bg-white dark:bg-zinc-800 shadow-sm translate-x-full transition-transform duration-300 ease-in-out"
         >
           <div class="px-4 py-6">
             <div class="flex justify-between items-center">
@@ -583,7 +589,7 @@
                 <p class="text-[14px] font-oswald">$400 - 70</p>
               </div> -->
             </div>
-            <div class="mt-6 bg-blue-50 p-3 dark:bg-zinc-700 rounded-lg">
+            <div class="mt-6 bg-gray-200 p-3 dark:bg-zinc-700 rounded-lg">
               <form action="" id="productAddForm">
                 <div class="grid grid-cols-2 gap-2">
                   <div class="col-span-2">
@@ -592,7 +598,7 @@
                         type="text"
                         id="newProductName"
                         name="new_product_name"
-                        class="peer py-2.5 sm:py-3 px-4 ps-11 block w-full bg-gray-100 border-transparent rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-zinc-800 dark:border-transparent dark:focus:border-neutral-500 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                        class="peer shadow py-2.5 sm:py-3 px-4 ps-11 block w-full bg-gray-100 border-transparent rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-zinc-800 dark:border-transparent dark:focus:border-neutral-500 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                         placeholder="Product Name"
                       />
                       <div
@@ -625,7 +631,7 @@
                       type="number"
                       id="newProductPrice"
                       name="new_product_price"
-                      class="peer py-2.5 sm:py-3 px-4 ps-11 block w-full bg-gray-100 border-transparent rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-zinc-800 dark:border-transparent dark:focus:border-neutral-500 dark:text-neutral-500 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                      class="peer shadow py-2.5 sm:py-3 px-4 ps-11 block w-full bg-gray-100 border-transparent rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-zinc-800 dark:border-transparent dark:focus:border-neutral-500 dark:text-neutral-500 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                       placeholder="Price"
                     />
                     <div
@@ -712,7 +718,9 @@
           <h5 class="product-item-name text-[14px] font-oswald">
             [Product Name]
           </h5>
-          <p class="product-item-price text-[14px] font-oswald">[$750]</p>
+          <p class="text-[14px] font-oswald text-blue-500">
+            <span class="product-item-price">[$750]</span> mmk
+          </p>
         </div>
       </template>
     </main>
