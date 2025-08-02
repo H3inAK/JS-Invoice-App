@@ -1,10 +1,10 @@
 import { renderProducts } from "./inventory";
-import { sidebar } from "./selectors";
-import products from "./states";
+import { renderProductRecords } from "./record";
+import { productRecords, products } from "./states";
 
 const initialRender = () => {
-    sidebar.classList.remove('translate-x-full');
     renderProducts(products);
+    renderProductRecords(productRecords);
 }
 
 export default initialRender;

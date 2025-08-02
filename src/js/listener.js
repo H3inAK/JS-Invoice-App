@@ -1,13 +1,16 @@
-import { addRecordFormHandler, manageInventoryBtnHandler, sidebarBtnHandler } from "./handler";
+import { manageInventoryBtnHandler, printBtnHandler, sidebarBtnHandler } from "./handler";
 import { addNewProductBtnHandler } from "./inventory";
-import { addNewProductBtn, addRecordForm, manageInventoryBtn, sidebarBtn } from "./selectors";
+import { addRecordFormHandler } from "./record";
+import { addNewProductBtn, addRecordForm, manageInventoryBtn, printBtn, sidebarBtn } from "./selectors";
 
 const listener = () => {
-    manageInventoryBtn.addEventListener('click', manageInventoryBtnHandler)
-    sidebarBtn.addEventListener('click', sidebarBtnHandler)
+    manageInventoryBtn.addEventListener('click', manageInventoryBtnHandler);
+    sidebarBtn.addEventListener('click', sidebarBtnHandler);
 
-    addNewProductBtn.addEventListener('click', addNewProductBtnHandler)
-    addRecordForm.addEventListener('submit', addRecordFormHandler)
+    addNewProductBtn.addEventListener('click', addNewProductBtnHandler);
+    addRecordForm.addEventListener('submit', addRecordFormHandler);
+
+    printBtn.addEventListener('click', printBtnHandler);
 };
 
 export default listener;

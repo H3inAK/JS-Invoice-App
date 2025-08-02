@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
 import { availableProducts, newProductName, newProductPrice, productItemTemplate, productSelect } from "./selectors";
-import products from './states';
+import { products } from './states';
 
 export const addNewProductBtnHandler = () => {
     const productName = newProductName.value.trim();
@@ -34,8 +34,8 @@ export const addNewProductBtnHandler = () => {
 
 export const addToChooseProducts = (products) => {
     productSelect.options.length = 1;
-    products.forEach(({ id, name }) => {
-        const newOption = new Option(name, id);
+    products.forEach(({ id, name, price }) => {
+        const newOption = new Option(`${name} - ${price} MMK`, id);
         productSelect.options.add(newOption);
     });
 }
@@ -45,7 +45,7 @@ export const renderProducts = (products) => {
         availableProducts.append(
             createProduct(id, name, price)
         );
-        const newOption = new Option(name, id);
+        const newOption = new Option(`${name} - ${price} MMK`, id);
         productSelect.options.add(newOption);
     });
 }

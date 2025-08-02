@@ -2,7 +2,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
 
 @theme {
   --font-sans: "Montserrat", "Padauk", sans-serif;
@@ -49,3 +49,46 @@
 
 /* Defaults hover styles on all devices */
 @custom-variant hover (&:hover);
+
+@media print {
+  /* Hide any non-essential UI */
+  header, footer, .no-print {
+    display: none !important;
+  }
+
+  /* Remove scrolling wrappers */
+  .overflow-x-auto,
+  .overflow-auto,
+  .overflow-hidden,
+  .inline-block,
+  .min-w-full {
+    overflow: visible !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* Force table and cells to fit nicely */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  th, td {
+    padding: 8px !important;
+    text-align: left !important;
+    font-size: 12px !important;
+    white-space: nowrap;
+  }
+
+  /* Fix shrinking on some columns */
+  th, td {
+    max-width: none !important;
+  }
+
+  /* Body/Page adjustments */
+  html, body {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
