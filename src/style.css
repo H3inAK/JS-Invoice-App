@@ -50,9 +50,22 @@
 /* Defaults hover styles on all devices */
 @custom-variant hover (&:hover);
 
+.swal2-popup {
+  @apply rounded-xl max-w-[300px] sm:max-w-[400px] font-sans dark:bg-zinc-700 dark:text-neutral-300;
+}
+
+.swal2-confirm {
+  @apply px-3 py-2.5 ml-2 bg-blue-500 text-white dark:bg-zinc-800 dark:text-white rounded-xl hover:bg-blue-400 dark:hover:bg-zinc-900 hover:shadow-sm active:scale-95 duration-300 transition-all;
+}
+
+.swal2-cancel {
+  @apply px-3 py-2.5 bg-neutral-200 text-neutral-800 dark:bg-neutral-300 dark:text-zinc-800 rounded-xl hover:bg-neutral-100 hover:shadow-sm active:scale-95 duration-200 transition-all;
+}
+
 @media print {
   /* Hide any non-essential UI */
-  header, footer, .no-print {
+  footer,
+  .no-print {
     display: none !important;
   }
 
@@ -73,7 +86,8 @@
     border-collapse: collapse !important;
   }
 
-  th, td {
+  th,
+  td {
     padding: 8px !important;
     text-align: left !important;
     font-size: 12px !important;
@@ -81,12 +95,14 @@
   }
 
   /* Fix shrinking on some columns */
-  th, td {
+  th,
+  td {
     max-width: none !important;
   }
 
   /* Body/Page adjustments */
-  html, body {
+  html,
+  body {
     width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;

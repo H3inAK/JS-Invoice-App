@@ -13,7 +13,7 @@ export const productItemTemplate = document.querySelector('#productItemTemplate'
 export const productSelect = document.querySelector('#productSelect');
 export const addRecordForm = document.querySelector('#addRecordForm');
 
-export const productRows = document.querySelector('#productRows');
+export const productRecordsGroup = document.querySelector('#productRecordsGroup');
 export const noProductRow = document.querySelector('#noProductRow');
 export const productRecordTemplate = document.querySelector('#productRecordTemplate');
 export const totalCost = document.querySelector('#totalCost');

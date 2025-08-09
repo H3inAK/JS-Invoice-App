@@ -71,7 +71,7 @@
             </div>
             <button
               type="button"
-              class="border border-gray-200 hs-dark-mode-active:hidden block hs-dark-mode font-medium text-gray-800 rounded-full max-h-12 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+              class="no-print border border-gray-200 hs-dark-mode-active:hidden block hs-dark-mode font-medium text-gray-800 rounded-full max-h-12 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               data-hs-theme-click-value="dark"
             >
               <span
@@ -151,11 +151,6 @@
     }'
                   >
                     <option value="">Choose</option>
-                    <!-- <option>Apple Macbook</option>
-                    <option>Apple Ipad</option>
-                    <option>Apple Iphone</option>
-                    <option>Apple Watch</option>
-                    <option>Xiaomi NoteBook</option> -->
                   </select>
 
                   <div class="absolute top-1/2 end-2.5 -translate-y-1/2">
@@ -313,7 +308,7 @@
                           </th>
                         </tr>
                       </thead>
-                      <tbody id="productRows">
+                      <tbody id="productRecordsGroup">
                         <tr
                           id="noProductRow"
                           class="bg-white dark:bg-neutral-900 hidden no-print"
@@ -325,7 +320,7 @@
                             <h2
                               class="text-md dark:text-neutral-400 text-gray-500"
                             >
-                              No product record added yet!
+                              No product records yet!
                             </h2>
                           </td>
                         </tr>
@@ -384,7 +379,7 @@
       <section>
         <div
           id="sidebar"
-          class="fixed top-0 right-0 h-screen w-[300px] overflow-y-auto bg-white dark:bg-zinc-800 shadow-sm translate-x-full transition-transform duration-300 ease-in-out"
+          class="fixed top-0 right-0 h-screen w-[300px] overflow-y-auto bg-white dark:bg-zinc-800 shadow-sm translate-x-full"
         >
           <div class="px-4 py-6">
             <div class="flex justify-between items-center">
@@ -590,7 +585,7 @@
           <td class="no-print px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
             <button
               type="button"
-              class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-hidden focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400"
+              class="remove-btn inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-hidden focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400"
             >
               Remove
             </button>
