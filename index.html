@@ -14,7 +14,7 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://metatags.io/" />
+    <meta property="og:url" content="https://github.com/H3inAK/JS-Invoice-App/blob/master/assets/images/app_preview_dark.png" />
     <meta property="og:title" content="JS Invoice App" />
     <meta
       property="og:description"
@@ -22,18 +22,18 @@
     />
     <meta
       property="og:image"
-      content="./assets/images/invoice_app_preview.png"
+      content="https://github.com/H3inAK/JS-Invoice-App/blob/master/assets/images/app_preview_dark.png"
     />
 
     <!-- X (Twitter) -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://metatags.io/" />
+    <meta property="twitter:url" content="https://github.com/H3inAK/JS-Invoice-App/blob/master/assets/images/app_preview_dark.png" />
     <meta property="twitter:title" content="JS Invoice App" />
     <meta
       property="twitter:description"
       content="Manage your inventory and sell your in stocks products in this app"
     />
-    <meta property="twitter:image" content="./assets/images" />
+    <meta property="twitter:image" content="https://github.com/H3inAK/JS-Invoice-App/blob/master/assets/images/app_preview_dark.png" />
 
     <!-- Meta Tags Generated with https://metatags.io -->
     <title>Invoice App</title>
@@ -536,7 +536,7 @@
               id="printBtn"
               class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
             >
-              Print
+              Check Out
             </button>
           </div>
         </div>
@@ -573,16 +573,48 @@
             $1,000
           </td>
           <td
-            class="record-product-quantity px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200 text-end"
+            class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200 text-end"
           >
-            1
+            <div class="flex items-center justify-end gap-1.5">
+              <button class="quantity-decrease p-0.5 border border-neutral-400 dark:border-zinc-700 bg-neutral-300 dark:bg-zinc-600 rounded-3xl shadow-xs">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="size-4 pointer-events-none"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+            <span class="record-product-quantity"> 1 </span>
+            <button class="quantity-increase p-0.5 border border-neutral-400 dark:border-zinc-700 bg-neutral-300 dark:bg-zinc-600 rounded-3xl shadow-xs">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="size-4 pointer-events-none"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+            </div>
           </td>
           <td
             class="record-product-cost px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200 text-end"
           >
             $1,000
           </td>
-          <td class="no-print px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+          <td
+            class="no-print px-6 py-4 whitespace-nowrap text-end text-sm font-medium"
+          >
             <button
               type="button"
               class="remove-btn inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-hidden focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400"

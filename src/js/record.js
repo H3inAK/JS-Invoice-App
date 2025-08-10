@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { addRecordForm, netTotal, noProductRow, productRecordTemplate, productRecordsGroup, productSelect, totalCost, totalTax } from "./selectors";
 import { products, productRecords } from "./states";
 import Swal from 'sweetalert2';
+import { HSInputNumber } from 'preline';
 
 const renderProductIds = new Set();
 
@@ -13,16 +14,16 @@ const clearAllProductRecords = () => {
         });
 }
 
-export const renderProductRecords = (productRecords) => {
-    if (productRecords.length == 0) {
+export const renderProductRecords = (pdRecords = productRecords) => {
+    if (pdRecords.length == 0) {
         noProductRow.classList.remove('hidden')
     } else {
         noProductRow.classList.add('hidden')
     }
     clearAllProductRecords();
 
-    for (let count = 0; count < productRecords.length; count++) {
-        const productRecord = productRecords[count];
+    for (let count = 0; count < pdRecords.length; count++) {
+        const productRecord = pdRecords[count];
         const { id, name, price, quantity } = productRecord;
         const isNewlyProductRecord = !renderProductIds.has(id);
 
@@ -37,15 +38,14 @@ export const renderProductRecords = (productRecords) => {
         productRecordsGroup.append(productRecordRow);
         renderProductIds.add(id);
     }
-
-    // calculateTotalCost(productRecords);
 };
 
 
 const removeProductRecord = (id) => {
+    const pureId = id.replace('record-', '');
     const productRecordEl = document.getElementById(`${id}`);
     if (!productRecordEl) return;
-    const productRecord = productRecords.find((pr) => pr.id == id.replace('record-', ''));
+    const productRecord = productRecords.find((pr) => pr.id == pureId);
 
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
@@ -77,14 +77,42 @@ const removeProductRecord = (id) => {
 
 }
 
+export const increaseProductRecordQuantity = (id) => {
+    const pureId = id.replace('record-', '');
+    const productRecordRow = productRecords.find(pr => pr.id == pureId);
+    if (!productRecordRow) return;
+
+    productRecordRow.quantity = Number(productRecordRow.quantity) + 1;
+    renderProductRecords();
+}
+
+export const decreaseProductRecordQuantity = (id) => {
+    const pureId = id.replace('record-', '');
+    const productRecordRow = productRecords.find(pr => pr.id == pureId);
+    if (!productRecordRow) return;
+
+    if (productRecordRow.quantity > 1) {
+        productRecordRow.quantity = Number(productRecordRow.quantity) - 1;
+        renderProductRecords();
+    }
+}
+
 export const productRecordsGroupHandler = (e) => {
     if (e.target.classList.contains('remove-btn')) {
-        const productRow = e.target.closest('.product-record');
-        if (!productRow) return;
+        const productRecordRow = e.target.closest('.product-record');
+        if (!productRecordRow) return;
 
-        const removeId = productRow.id;
-        removeId.replace('record-', '')
-        removeProductRecord(removeId);
+        removeProductRecord(productRecordRow.id);
+    } else if (e.target.classList.contains('quantity-increase')) {
+        const productRecordRow = e.target.closest('.product-record');
+        if (!productRecordRow) return;
+
+        increaseProductRecordQuantity(productRecordRow.id)
+    } else if (e.target.classList.contains('quantity-decrease')) {
+        const productRecordRow = e.target.closest('.product-record');
+        if (!productRecordRow) return;
+
+        decreaseProductRecordQuantity(productRecordRow.id)
     }
 }
 
@@ -116,15 +144,21 @@ export const addRecordFormHandler = (event) => {
         quantity: formData.get('quantity'),
     });
     renderProductRecords(productRecords);
+
+    const quantityInput = addRecordForm.querySelector('[data-hs-input-number]');
+    const productSelect = addRecordForm.querySelector('select[name="product_select"]');
     addRecordForm.reset();
-    resetHSSelect();
+    resetHSComponent(quantityInput, productSelect);
 }
 
-export const resetHSSelect = () => {
-    const instance = window.HSSelect.getInstance(productSelect);
-    if (instance) instance.destroy();
-
+export const resetHSComponent= (quantityInput, productSelect) => {
+    const selectInstance = window.HSSelect.getInstance(productSelect);
+    if (selectInstance) selectInstance.destroy();
     new HSSelect(productSelect);
+
+    const quantityInstance = window.HSInputNumber.getInstance(quantityInput);
+    if(quantityInstance) quantityInstance.destroy();
+    new HSInputNumber(quantityInput);
 }
 
 export const createRecordRow = (id, count, name, price, quantity) => {
