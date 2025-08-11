@@ -8,7 +8,7 @@ export const addNewProductBtnHandler = () => {
     const productPrice = newProductPrice.valueAsNumber;
     if (!productName && !productPrice) return;
 
-    const newProduct = createProduct(uuidv4(), productName, productPrice);
+    const newProduct = createInventoryProduct(uuidv4(), productName, productPrice);
     availableProducts.append(newProduct);
 
     // add animation
@@ -25,14 +25,14 @@ export const addNewProductBtnHandler = () => {
 
     const instance = window.HSSelect.getInstance(productSelect);
     if (instance) instance.destroy();
-    addToChooseProducts(products);
+    addToSaleProducts(products);
     new HSSelect(productSelect);
 
     newProductName.value = '';
     newProductPrice.value = null;
 };
 
-export const addToChooseProducts = (products) => {
+export const addToSaleProducts = (products) => {
     productSelect.options.length = 1;
     products.forEach(({ id, name, price }) => {
         const newOption = new Option(`${name} - ${price} MMK`, id);
@@ -43,7 +43,7 @@ export const addToChooseProducts = (products) => {
 export const renderProducts = (products) => {
     products.forEach(({ id, name, price }) => {
         availableProducts.append(
-            createProduct(id, name, price)
+            createInventoryProduct(id, name, price)
         );
         const newOption = new Option(`${name} - ${price} MMK`, id);
         productSelect.options.add(newOption);
@@ -51,7 +51,7 @@ export const renderProducts = (products) => {
 }
 
 
-export const createProduct = (id, name, price) => {
+export const createInventoryProduct = (id, name, price) => {
     const productItemFragment = productItemTemplate.content.cloneNode(true);
     const productItem = productItemFragment.querySelector('.product-item')
     const productName = productItem.querySelector('.product-item-name');

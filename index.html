@@ -14,7 +14,10 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://github.com/H3inAK/JS-Invoice-App/blob/master/assets/images/app_preview_dark.png" />
+    <meta
+      property="og:url"
+      content="https://github.com/H3inAK/JS-Invoice-App/blob/master/assets/images/app_preview_dark.png"
+    />
     <meta property="og:title" content="JS Invoice App" />
     <meta
       property="og:description"
@@ -27,13 +30,19 @@
 
     <!-- X (Twitter) -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://github.com/H3inAK/JS-Invoice-App/blob/master/assets/images/app_preview_dark.png" />
+    <meta
+      property="twitter:url"
+      content="https://github.com/H3inAK/JS-Invoice-App/blob/master/assets/images/app_preview_dark.png"
+    />
     <meta property="twitter:title" content="JS Invoice App" />
     <meta
       property="twitter:description"
       content="Manage your inventory and sell your in stocks products in this app"
     />
-    <meta property="twitter:image" content="https://github.com/H3inAK/JS-Invoice-App/blob/master/assets/images/app_preview_dark.png" />
+    <meta
+      property="twitter:image"
+      content="https://github.com/H3inAK/JS-Invoice-App/blob/master/assets/images/app_preview_dark.png"
+    />
 
     <!-- Meta Tags Generated with https://metatags.io -->
     <title>Invoice App</title>
@@ -61,79 +70,82 @@
   <body>
     <main id="app" class="flex flex-col min-h-screen">
       <header>
-        <div class="container py-4">
+        <div class="container print: py-4">
           <div class="flex justify-between items-center">
             <div>
               <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
                 TZO Solutions
               </h1>
-              <p class="font-medium text-blue-500">Invoice App for Shop</p>
+              <p class="print:hidden font-medium text-blue-500">Invoice App for Shop</p>
+              <p class="hidden print:block font-medium text-blue-500">Your Invoice</p>
             </div>
-            <button
-              type="button"
-              class="no-print border border-gray-200 hs-dark-mode-active:hidden block hs-dark-mode font-medium text-gray-800 rounded-full max-h-12 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
-              data-hs-theme-click-value="dark"
-            >
-              <span
-                class="group inline-flex shrink-0 justify-center items-center size-9"
+            <div class="print:hidden">
+              <button
+                type="button"
+                class="print:hidden border border-gray-200 hs-dark-mode-active:hidden block hs-dark-mode font-medium text-gray-800 rounded-full max-h-12 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                data-hs-theme-click-value="dark"
               >
-                <svg
-                  class="shrink-0 size-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                <span
+                  class="group inline-flex shrink-0 justify-center items-center size-9"
                 >
-                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-                </svg>
-              </span>
-            </button>
-            <button
-              type="button"
-              class="border border-gray-200 dark:border-neutral-700 hs-dark-mode-active:block hidden hs-dark-mode font-medium text-gray-800 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
-              data-hs-theme-click-value="light"
-            >
-              <span
-                class="group inline-flex shrink-0 justify-center items-center size-9"
+                  <svg
+                    class="shrink-0 size-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                  </svg>
+                </span>
+              </button>
+              <button
+                type="button"
+                class="border print:hidden border-gray-200 dark:border-neutral-700 hs-dark-mode-active:block hidden hs-dark-mode font-medium text-gray-800 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                data-hs-theme-click-value="light"
               >
-                <svg
-                  class="shrink-0 size-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                <span
+                  class="group inline-flex shrink-0 justify-center items-center size-9"
                 >
-                  <circle cx="12" cy="12" r="4"></circle>
-                  <path d="M12 2v2"></path>
-                  <path d="M12 20v2"></path>
-                  <path d="m4.93 4.93 1.41 1.41"></path>
-                  <path d="m17.66 17.66 1.41 1.41"></path>
-                  <path d="M2 12h2"></path>
-                  <path d="M20 12h2"></path>
-                  <path d="m6.34 17.66-1.41 1.41"></path>
-                  <path d="m19.07 4.93-1.41 1.41"></path>
-                </svg>
-              </span>
-            </button>
+                  <svg
+                    class="shrink-0 size-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2"></path>
+                    <path d="M12 20v2"></path>
+                    <path d="m4.93 4.93 1.41 1.41"></path>
+                    <path d="m17.66 17.66 1.41 1.41"></path>
+                    <path d="M2 12h2"></path>
+                    <path d="M20 12h2"></path>
+                    <path d="m6.34 17.66-1.41 1.41"></path>
+                    <path d="m19.07 4.93-1.41 1.41"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </header>
-      <section class="mt-1 no-print">
-        <div class="container">
+      <section class="mt-1">
+        <div class="container print:">
           <form
             id="addRecordForm"
             action="#"
-            class="bg-blue-50 py-2 px-4 dark:bg-zinc-800 rounded drop-shadow-sm"
+            class="bg-blue-50 py-2 px-4 dark:bg-zinc-800 rounded drop-shadow-sm print:hidden"
           >
             <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-4">
               <div class="col-span-2 sm:col-span-3">
@@ -259,7 +271,7 @@
       <section class="mt-3">
         <div class="container">
           <div
-            class="bg-blue-50 dark:bg-zinc-800 shadow-sm rounded overflow-hidden"
+            class="bg-blue-50 dark:bg-zinc-800 shadow-sm print:shadow-none rounded overflow-hidden"
           >
             <div class="flex flex-col font-oswald">
               <div class="-m-1.5 overflow-x-auto">
@@ -302,7 +314,7 @@
                           </th>
                           <th
                             scope="col"
-                            class="no-print px-6 py-3 text-end text-xs font-medium font-sans text-gray-500 uppercase dark:text-neutral-400"
+                            class="table-column print:hidden px-6 py-3 text-end text-xs font-medium font-sans text-gray-500 uppercase dark:text-neutral-400"
                           >
                             Action
                           </th>
@@ -311,7 +323,7 @@
                       <tbody id="productRecordsGroup">
                         <tr
                           id="noProductRow"
-                          class="bg-white dark:bg-neutral-900 hidden no-print"
+                          class="bg-white dark:bg-neutral-900 hidden"
                         >
                           <td
                             colspan="6"
@@ -375,11 +387,22 @@
         </div>
       </section>
 
+      <section class="mt-auto mb-10">
+        <div class="container hidden print:block">
+          <h3 class="text-2xl text-center text-blue-200">
+            Thanks you for purchasing
+          </h3>
+          <p class="text-xl text-center text-blue-300">
+            By TZO Solutions
+          </p>
+        </div>
+      </section>
+
       <!-- Sidebar -->
       <section>
         <div
           id="sidebar"
-          class="fixed top-0 right-0 h-screen w-[300px] overflow-y-auto bg-white dark:bg-zinc-800 shadow-sm translate-x-full"
+          class="print:hidden fixed top-0 right-0 h-screen w-[300px] overflow-y-auto bg-white dark:bg-zinc-800 shadow-sm translate-x-full"
         >
           <div class="px-4 py-6">
             <div class="flex justify-between items-center">
@@ -521,9 +544,9 @@
         </div>
       </section>
 
-      <footer class="mt-auto mb-2 no-print">
+      <footer class="mt-auto mb-2">
         <div class="container py-3">
-          <div class="flex justify-end gap-3">
+          <div class="flex justify-end gap-3 print:hidden">
             <button
               type="button"
               id="manageInventoryBtn"
@@ -576,35 +599,39 @@
             class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200 text-end"
           >
             <div class="flex items-center justify-end gap-1.5">
-              <button class="quantity-decrease p-0.5 border border-neutral-400 dark:border-zinc-700 bg-neutral-300 dark:bg-zinc-600 rounded-3xl shadow-xs">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-4 pointer-events-none"
+              <button
+                class="quantity-decrease block print:hidden active:scale-95 p-0.5 bg-blue-100 dark:bg-zinc-800 rounded-3xl shadow-xs"
               >
-                <path
-                  fill-rule="evenodd"
-                  d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </button>
-            <span class="record-product-quantity"> 1 </span>
-            <button class="quantity-increase p-0.5 border border-neutral-400 dark:border-zinc-700 bg-neutral-300 dark:bg-zinc-600 rounded-3xl shadow-xs">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-4 pointer-events-none"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-4 pointer-events-none"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <span class="record-product-quantity"> 1 </span>
+              <button
+                class="quantity-increase block print:hidden active:scale-95 p-0.5 bg-blue-100 dark:bg-zinc-800 rounded-3xl shadow-xs"
               >
-                <path
-                  fill-rule="evenodd"
-                  d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-4 pointer-events-none"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
             </div>
           </td>
           <td
@@ -612,12 +639,10 @@
           >
             $1,000
           </td>
-          <td
-            class="no-print px-6 py-4 whitespace-nowrap text-end text-sm font-medium"
-          >
+          <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
             <button
               type="button"
-              class="remove-btn inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-hidden focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400"
+              class="print:hidden remove-btn inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-hidden focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400"
             >
               Remove
             </button>

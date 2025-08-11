@@ -1,4 +1,6 @@
+import { renderProductRecords } from "./record";
 import { sidebar } from "./selectors";
+import { productRecords } from "./states";
 
 export const manageInventoryBtnHandler = () => {
     sidebar.classList.toggle('translate-x-full');
@@ -10,5 +12,7 @@ export const sidebarBtnHandler = () => {
 }
 
 export const printBtnHandler = () => {
+    if (productRecords.length === 0) return;
+    
     window.print();
 }

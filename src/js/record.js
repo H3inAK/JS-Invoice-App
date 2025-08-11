@@ -1,9 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
-
-import { addRecordForm, netTotal, noProductRow, productRecordTemplate, productRecordsGroup, productSelect, totalCost, totalTax } from "./selectors";
-import { products, productRecords } from "./states";
 import Swal from 'sweetalert2';
 import { HSInputNumber } from 'preline';
+
+import { addRecordForm, netTotal, noProductRow, productRecordTemplate, productRecordsGroup, totalCost, totalTax } from "./selectors";
+import { products, productRecords } from "./states";
+import { highlightCell, highlightProductRecordRow, highlightTotalCost } from './animations';
 
 const renderProductIds = new Set();
 
@@ -80,20 +81,22 @@ const removeProductRecord = (id) => {
 export const increaseProductRecordQuantity = (id) => {
     const pureId = id.replace('record-', '');
     const productRecordRow = productRecords.find(pr => pr.id == pureId);
-    if (!productRecordRow) return;
 
-    productRecordRow.quantity = Number(productRecordRow.quantity) + 1;
-    renderProductRecords();
+    if (productRecordRow) {
+        productRecordRow.quantity++;
+        renderProductRecords();
+        highlightCell(pureId);
+    }
 }
 
 export const decreaseProductRecordQuantity = (id) => {
     const pureId = id.replace('record-', '');
     const productRecordRow = productRecords.find(pr => pr.id == pureId);
-    if (!productRecordRow) return;
 
-    if (productRecordRow.quantity > 1) {
-        productRecordRow.quantity = Number(productRecordRow.quantity) - 1;
+    if (productRecordRow && productRecordRow.quantity > 1) {
+        productRecordRow.quantity--;
         renderProductRecords();
+        highlightCell(pureId);
     }
 }
 
@@ -116,7 +119,6 @@ export const productRecordsGroupHandler = (e) => {
     }
 }
 
-
 export const calculateTotalCost = () => {
     let total = 0;
     let tax = 0;
@@ -126,39 +128,10 @@ export const calculateTotalCost = () => {
     tax = total * 0.05;
 
     totalCost.textContent = total + ' mmk';
-    totalTax.textContent = tax == 0 ? 'Tax (5%)' : `+ ${tax}mmk (Tax 5%)`;
+    totalTax.textContent = tax == 0 ? 'Tax (5%)' : `+${tax}mmk (Tax 5%)`;
     netTotal.textContent = total + tax + ' mmk';
-}
 
-export const addRecordFormHandler = (event) => {
-    event.preventDefault();
-    const formData = new FormData(addRecordForm);
-    const selectedProduct = products.find(({ id }) => id === formData.get('product_select'));
-
-    if (!selectedProduct) return;
-
-    productRecords.push({
-        id: uuidv4(),
-        name: selectedProduct.name,
-        price: selectedProduct.price,
-        quantity: formData.get('quantity'),
-    });
-    renderProductRecords(productRecords);
-
-    const quantityInput = addRecordForm.querySelector('[data-hs-input-number]');
-    const productSelect = addRecordForm.querySelector('select[name="product_select"]');
-    addRecordForm.reset();
-    resetHSComponent(quantityInput, productSelect);
-}
-
-export const resetHSComponent= (quantityInput, productSelect) => {
-    const selectInstance = window.HSSelect.getInstance(productSelect);
-    if (selectInstance) selectInstance.destroy();
-    new HSSelect(productSelect);
-
-    const quantityInstance = window.HSInputNumber.getInstance(quantityInput);
-    if(quantityInstance) quantityInstance.destroy();
-    new HSInputNumber(quantityInput);
+    highlightTotalCost();
 }
 
 export const createRecordRow = (id, count, name, price, quantity) => {
@@ -178,4 +151,48 @@ export const createRecordRow = (id, count, name, price, quantity) => {
     recordProductCost.innerText = quantity * price + " mmk";
 
     return productRecord;
+}
+
+export const resetHSComponent = () => {
+    const productSelect = addRecordForm.querySelector('select[name="product_select"]');
+    const quantityInput = addRecordForm.querySelector('[data-hs-input-number]');
+
+    const selectInstance = window.HSSelect.getInstance(productSelect);
+    if (selectInstance) selectInstance.destroy();
+    new HSSelect(productSelect);
+
+    const quantityInstance = window.HSInputNumber.getInstance(quantityInput);
+    if (quantityInstance) quantityInstance.destroy();
+    new HSInputNumber(quantityInput);
+}
+
+export const addRecordFormHandler = (event) => {
+    event.preventDefault();
+    const formData = new FormData(addRecordForm);
+    const selectedProduct = products.find(({ id }) => id === formData.get('product_select'));
+
+    if (!selectedProduct) return;
+
+    const index = productRecords.findIndex(pr => pr.name == selectedProduct.name);
+    if (index !== -1) {
+        const currentProductRecord = productRecords[index];
+        currentProductRecord.quantity = Number(currentProductRecord.quantity) + Number(formData.get('quantity'));
+        renderProductRecords();
+        highlightProductRecordRow(currentProductRecord.id);
+
+        addRecordForm.reset();
+        resetHSComponent();
+        return;
+    }
+
+    productRecords.push({
+        id: uuidv4(),
+        name: selectedProduct.name,
+        price: selectedProduct.price,
+        quantity: formData.get('quantity'),
+    });
+    renderProductRecords();
+
+    addRecordForm.reset();
+    resetHSComponent();
 }
